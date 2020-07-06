@@ -1,0 +1,55 @@
+/* Bhaiyaajee's Code for Effort , Duration , etc. claculations in COCOMO Models's various types */
+
+#include<stdio.h>
+#include<math.h>
+void Display(float , float , float , float);
+
+void main()
+{
+    int kloc , choice ;
+    float effort , duration , productivity ,staff;
+    
+     printf("Enter the Effort in KLOC please : ");
+    scanf("%d",&kloc);
+    
+  printf("\nChoose and Enter your Choice : \n 1. Organic COCOMO \n 2. Semi Detached COCOCMO \n 3. Embedded COCOMO \n Your Choice Please : ");
+    scanf("%d",&choice);
+    
+    if(choice==1)
+    {
+   
+    effort = pow(kloc,1.05) *2.4 ;
+    duration = pow(effort,0.38) * 2.5;
+    staff = (effort / duration) ;
+    productivity = kloc / effort ;
+    
+     Display(effort , duration , productivity , staff);
+    }
+    
+    else if(choice==2)
+    {
+    effort = pow(kloc,1.12) *3.0 ;
+    duration = pow(effort,0.35) * 2.5;
+    staff = (effort / duration) ;
+    productivity = kloc / effort ;
+    
+    Display(effort , duration , productivity , staff);
+    }
+    
+    else if(choice==3)
+    {
+    effort = pow(kloc,1.20) *3.6 ;
+    duration = pow(effort,0.32) * 2.5;
+    staff = (effort / duration) ;
+    productivity = kloc / effort ;
+     Display(effort , duration , productivity , staff);
+    }
+}
+    void Display(float effort , float duration , float productivity , float staff)
+    {
+    printf("\nEffort = %f PM \n\n",effort);
+    printf("Duration = %f PM \n\n",duration);
+    printf("Staff Size = %f Persons \n\n",staff);
+    printf("Productivity = %f KLOC/PM ",productivity);
+    }
+    
